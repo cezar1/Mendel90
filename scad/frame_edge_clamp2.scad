@@ -73,24 +73,25 @@ module frame_edge_clamp_back_stl(length = 20, gap = sheet_thickness(frame)) {
                     rotate([0, 0, 90])
                         poly_cylinder(M3_clearance_radius, h = 100, center = true);
         }
-        translate([-l / 2, -w , 0])
+        translate([-l / 2, -w-1 , 0])
         {difference()
             {
                 union()
                 {
+                translate([l/2,2,0]) color ([1,1,0]) cube([l/2, w/2, clamp_back_thickness + gap - layer_height]);
                 color ([1,1,0]) cube([l, w/2, clamp_back_thickness + gap - layer_height]);
                 
                 }
                union()
                 {
                     for (i=[-1,0,1])
-                    color ([0,1,0]) translate([l/2+i*9,1+w/4,-clamp_back_thickness/2])cylinder(r=2.5,h=12);
+                    color ([0,1,0]) translate([l/2+i*9,w/4,-clamp_back_thickness/2])cylinder(r=2.5,h=12);
                 }
             }
         }
         
         translate([0, - w / 2 + hinge / 2, clamp_back_thickness + gap])
-            color ([1,0,0]) cube([pivot_l(l), pivot_w, pivot_h * 2-1], center = true);
+            color ([1,0,1]) cube([pivot_l(l), pivot_w, pivot_h * 2-1.5], center = true);
     }
 }
 

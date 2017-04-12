@@ -52,7 +52,7 @@ pi_cam_front_depth = pi_cam_back_depth + pi_cam_thickness + pi_cam_front_clearan
 pi_cam_front_length = pi_cam_back_length + 2 * (pi_cam_front_wall + clearance);
 pi_cam_front_width = pi_cam_back_width + 2 * (pi_cam_front_wall + clearance);
 
-bar_dia = 12.5;
+bar_dia = 12;
 bar_gap = 2;
 bar_wall = 3;
 
@@ -80,7 +80,7 @@ clamp_length = bar_dia - frame_edge_clamp_pitch(0) + 2 * nut_flat_radius(M3_nut)
 echo(clamp_length);
 band_width = 2 * (nut_trap_radius(M3_nut) + wall);
 band_tab_h = 2 * (nut_trap_flat_radius(M3_nut) + wall);
-band_ir = bar_dia / 2;
+band_ir = bar_dia / 2+0.5;
 band_or = band_ir + pi_cam_front_wall;
 band_y = pi_cam_front_width / 2 - pi_cam_width / 2 + pi_cam_back_width / 2 - pi_cam_front_wall + band_or + eta;
 
@@ -518,7 +518,7 @@ module rpi_camera_case_stl() {
     //    rpi_camera_back_stl();
 }
 
-/*
+///*
 if(0)
     raspberry_pi_camera_assembly();
 else
@@ -526,6 +526,6 @@ else
         rpi_camera_case_stl();
     else
         rpi_camera_bar_stl();
-*/    
-rpi_light_clamp_stl() ;
+//*/    
+//rpi_light_clamp_stl() ;
 //blinkt_bracket();
