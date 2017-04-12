@@ -84,13 +84,13 @@ module frame_edge_clamp_back_stl(length = 20, gap = sheet_thickness(frame)) {
                union()
                 {
                     for (i=[-1,0,1])
-                    color ([0,1,0]) translate([l/2+i*6.5,1+w/4,-clamp_back_thickness/2])cylinder(r=2.5,h=12);
+                    color ([0,1,0]) translate([l/2+i*9,1+w/4,-clamp_back_thickness/2])cylinder(r=2.5,h=12);
                 }
             }
         }
         
         translate([0, - w / 2 + hinge / 2, clamp_back_thickness + gap])
-            color ([1,0,0]) cube([pivot_l(l), pivot_w, pivot_h * 2], center = true);
+            color ([1,0,0]) cube([pivot_l(l), pivot_w, pivot_h * 2-1], center = true);
     }
 }
 
@@ -134,12 +134,12 @@ module frame_edge_clamp_stl() {
         frame_edge_clamp_back_stl();
 
 }
-module frame_edge_clamp_stl2() {
+module frame_edge_clamp_stl2(length) {
 
-        frame_edge_clamp_back_stl();
+        frame_edge_clamp_back_stl(length=length);
 
 }
 if(0)
-    frame_edge_clamp_assembly();
+    frame_edge_clamp_assembly( length=27.4851);
 else
-    frame_edge_clamp_stl2();
+    frame_edge_clamp_stl2(length= 27.4851);

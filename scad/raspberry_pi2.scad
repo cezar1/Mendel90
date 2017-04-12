@@ -163,7 +163,7 @@ module raspberry_pi_assembly() {
     end("raspberry_pi_assembly");
 }
 
-if(0)
+if(1)
     raspberry_pi_assembly();
 else
     rpi_bracket_stl();
